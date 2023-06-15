@@ -1,0 +1,28 @@
+<div class="topnav" id="myTopnav">
+  <a routerLink="/" class="active">Home</a>
+  <div *ngIf="!checkLogin">
+    <a routerLink="register">Register</a>
+    <a routerLink="login">Login</a>
+  </div>
+  <div *ngIf="checkLogin">
+    <a routerLink="/">{{name}}</a>
+    <a routerLink="change-avatar"> <img src="{{avatar}}" style="width: 30px; height: 30px; border-radius: 50%"></a>
+    <a routerLink="category">Category</a>
+    <a (click)="logout()">Log out
+      <mat-icon>logout</mat-icon>
+    </a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+</script>

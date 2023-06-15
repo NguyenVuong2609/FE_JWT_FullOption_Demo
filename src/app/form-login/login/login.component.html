@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 30px; margin-bottom: 30px">
+      <mat-card style="margin: 0; text-align: center">
+        <form class="form-control" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
+          <mat-error class="alert alert-danger">{{status}}</mat-error>
+          <!--                    Username-->
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input name="username" #username="ngModel" [(ngModel)]="form.username" matInput required>
+            <mat-icon matSuffix>face</mat-icon>
+          </mat-form-field>
+          <br>
+          <!--                    Password-->
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input name="password" #password="ngModel" [(ngModel)]="form.password" matInput
+                   [type]="hide ? 'password' : 'text'" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br><br><br>
+          <button type="submit" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Login
+            <mat-icon color="accent" matSuffix>login</mat-icon></button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+
