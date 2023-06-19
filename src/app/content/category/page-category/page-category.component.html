@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px; margin-bottom: 25px">
+      <mat-card style="margin: 0">
+        <div class="row">
+          <div class="column" *ngFor="let ct of listCategory">
+            <div class="card">
+              <img src="{{ct.avatar}}" alt="">
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      <mat-paginator [length]="totalElements"
+                      (page)="nextPage($event)"
+                     [pageSizeOptions]="[3, 6, 9, 90]"
+                     aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

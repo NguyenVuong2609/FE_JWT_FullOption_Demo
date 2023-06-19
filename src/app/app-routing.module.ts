@@ -5,6 +5,7 @@ import {RegisterComponent} from "./form-login/register/register.component";
 import {LoginComponent} from "./form-login/login/login.component";
 import {ChangeAvatarComponent} from "./form-login/change-avatar/change-avatar.component";
 import {ListCategoryComponent} from "./content/category/list-category/list-category.component";
+import {UpdateCategoryComponent} from "./content/category/update-category/update-category.component";
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'change-avatar', component: ChangeAvatarComponent},
   {path: 'category', component: ListCategoryComponent},
+  // {path: 'update-category/:id', component: UpdateCategoryComponent},
 ];
 
 @NgModule({

@@ -6,41 +6,50 @@
         <button *ngIf="checkUserLogin" type="submit" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary" (click)="openDialog()">
           Create new category
           <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon></button>
-<!--        <table class="table table-striped">-->
-<!--          <tr class="table-primary">-->
-<!--            <th>No.</th>-->
-<!--            <th>Name</th>-->
-<!--            <th>Avatar</th>-->
-<!--          </tr>-->
-<!--          <tr *ngFor="let ct of listCategory; let i = index" class="table-primary">-->
-<!--            <td>{{i + 1}}</td>-->
-<!--            <td>{{ct.name}}</td>-->
-<!--            <td><img src="{{ct.avatar}}" alt="" style="width: 50px; height: 50px"></td>-->
-<!--          </tr>-->
-<!--        </table>-->
         <div class="mat-elevation-z8">
           <table mat-table [dataSource]="dataSource">
 
-            <!-- Position Column -->
             <ng-container matColumnDef="index">
               <th mat-header-cell *matHeaderCellDef> No. </th>
               <td mat-cell *matCellDef="let i = index"> {{i + 1}} </td>
             </ng-container>
 
-            <!-- Name Column -->
+
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Name </th>
               <td mat-cell *matCellDef="let element" style="text-transform: capitalize"> {{element.name}} </td>
             </ng-container>.
-            .+-
-          +``-
 
-            <!-- Weight Column -->
             <ng-container matColumnDef="avatar">
-              <th mat-header-cell *matHeaderCellDef> Weight </th>
+              <th mat-header-cell *matHeaderCellDef> Avatar </th>
               <td mat-cell *matCellDef="let element"><img src="{{element.avatar}}" alt="" style="width: 50px; height: 50px"> </td>
             </ng-container>
 
+<!--            <ng-container matColumnDef="edit">-->
+<!--              <th mat-header-cell *matHeaderCellDef> Edit </th>-->
+<!--              <td mat-cell *matCellDef="let element">-->
+<!--                <button [routerLink]="['/update-category/', element.id]" mat-raised-button color="primary"><mat-icon color="accent" matSuffix>edit</mat-icon> Edit</button>-->
+<!--              </td>-->
+<!--            </ng-container>-->
+
+<!--!            Dialog -->
+            <ng-container matColumnDef="edit">-->
+              <th mat-header-cell *matHeaderCellDef> Edit</th>
+              <td mat-cell *matCellDef="let element">
+                <button *ngIf="checkUserLogin" type="submit" mat-stroked-button color="primary" class="mat-button-toggle-group btn-outline-primary" (click)="openDialogUpdate(element.id)">
+                  Edit
+                  <mat-icon color="primary" matSuffix>edit</mat-icon></button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">-->
+              <th mat-header-cell *matHeaderCellDef> Delete</th>
+              <td mat-cell *matCellDef="let element">
+                <button *ngIf="checkUserLogin" type="submit" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary" (click)="openDialogDelete(element.id)">
+                  Delete
+                  <mat-icon color="accent" matSuffix>delete</mat-icon></button>
+              </td>
+            </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

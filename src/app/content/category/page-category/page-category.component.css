@@ -1,0 +1,14 @@
+.column {
+  width: 33%;
+  padding: 10px;
+}
+.card {
+  box-shadow: 5px 5px 2px 1px gray;
+  background-color: darksalmon;
+  padding: 10px;
+}
+img {
+  width: auto;
+  height: 200px;
+  border-radius: 8px;
+}

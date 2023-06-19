@@ -27,6 +27,9 @@ import { CreateCategoryComponent } from './content/category/create-category/crea
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { UpdateCategoryComponent } from './content/category/update-category/update-category.component';
+import { DeleteCategoryComponent } from './content/category/delete-category/delete-category.component';
+import { PageCategoryComponent } from './content/category/page-category/page-category.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     UploadAvatarComponent,
     ChangeAvatarComponent,
     ListCategoryComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    UpdateCategoryComponent,
+    DeleteCategoryComponent,
+    PageCategoryComponent
   ],
   imports: [
     HttpClientModule,
