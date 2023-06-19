@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px; margin-bottom: 25px">
+      <mat-card style="margin: 0;text-align: center">
+        <mat-dialog-content class="mat-typography">
+          <form class="form-angular" #f="ngForm" (ngSubmit)="f.form.valid && createSong()" novalidate>
+            <mat-error class="alert alert-danger">{{status}}</mat-error>
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Song's Name</mat-label>
+              <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput required>
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-error *ngIf="name.hasError('required')"> The name is required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Lyrics</mat-label>
+              <textarea name="lyrics" #lyrics="ngModel" [(ngModel)]="form.lyrics" matInput required></textarea>
+              <mat-icon matSuffix>lyrics</mat-icon>
+              <mat-error *ngIf="lyrics.hasError('required')"> The lyric is required</mat-error>
+            </mat-form-field>
+            <br>
+<!--            Selected -->
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Category</mat-label>
+              <mat-select [(ngModel)]="form.category" name="category" [formControl]="validateCategory">
+                <mat-option *ngFor="let cat of listCategory" [value]="cat">
+                  {{cat.name}}
+                </mat-option>
+              </mat-select>
+              <mat-error class="alert alert-danger" *ngIf="validateCategory.hasError('required')">Please select one category</mat-error>
+            </mat-form-field>
+            <br><br><br>
+            <mat-label>Avatar</mat-label>
+            <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
+            <br>
+            <mat-label>File</mat-label>
+            <app-upload-file (giveURLtoCreate)="onUploadFile($event)"></app-upload-file>
+            <br>
+            <button type="submit" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create
+              <mat-icon color="accent" matSuffix>send</mat-icon></button>
+          </form>
+        </mat-dialog-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

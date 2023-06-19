@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px; margin-bottom: 25px">
+      <mat-card style="margin: 0; align-items: center">
+        <div class="card text-center">
+          <div class="card-body">
+            <img src="{{song?.avatar}}" alt="">
+            <h2 class="card-title">{{song.name}}</h2>
+            <h3>Author: {{author}}</h3>
+            <h3>Category: {{song?.category?.name}}</h3>
+            <mat-label>Lyrics</mat-label>
+            <p class="card-text">{{song?.lyrics}}</p>
+            <audio [src]="song.mp3Url" controls autoplay></audio>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
