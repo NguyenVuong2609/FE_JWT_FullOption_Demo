@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {SignUpForm} from '../../model/SignUpForm';
 import {AuthService} from '../../service/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,9 @@ export class RegisterComponent implements OnInit {
     ]]
   })
 
-  constructor(private authService: AuthService, private builder: FormBuilder) {
+  constructor(private authService: AuthService,
+              private builder: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,6 +48,7 @@ export class RegisterComponent implements OnInit {
         this.status = 'The email is existed! Please choose another email.';
       } else {
         this.status = 'Create account successful!';
+        this.router.navigate(['login']);
       }
     });
   }

@@ -4,6 +4,8 @@ import {Category} from "../../../model/Category";
 import {FormControl, Validators} from "@angular/forms";
 import {Song} from "../../../model/Song";
 import {SongService} from "../../../service/song.service";
+import {SingerService} from "../../../service/singer.service";
+import {Singer} from "../../../model/Singer";
 
 @Component({
   selector: 'app-create-song',
@@ -12,6 +14,7 @@ import {SongService} from "../../../service/song.service";
 })
 export class CreateSongComponent implements OnInit{
   listCategory: Category[] = [];
+  singerList: Singer[] = [];
   form: any = {};
   song?: Song;
   status = 'Form create song';
@@ -20,11 +23,15 @@ export class CreateSongComponent implements OnInit{
     Validators.required
   ])
   constructor(private categoryService : CategoryService,
-              private songService: SongService) {
+              private songService: SongService,
+              private singerService: SingerService) {
   }
   ngOnInit(): void {
     this.categoryService.getListCategory().subscribe(data =>{
       this.listCategory = data;
+    })
+    this.singerService.getListSingerService().subscribe(data => {
+      this.singerList = data;
     })
   }
 
@@ -46,7 +53,8 @@ export class CreateSongComponent implements OnInit{
       this.form.avatar,
       this.form.lyrics,
       this.form.mp3Url,
-      this.form.category
+      this.form.category,
+      this.form.singerList
     )
     this.songService.createSongService(this.song).subscribe(data =>{
       if (data.message == 'create_success'){

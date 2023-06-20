@@ -23,7 +23,6 @@ export class UploadFileComponent {
   onUpload(){
     this.checkUploadFileMp3 = true;
     const id = Math.random().toString(36).substring(2); //Tạo ra 1 name riêng cho mỗi DB firebase;
-    console.log('id ---> ', id);
     this.ref = this.afStorage.ref(id);
     this.ref.put(this.selectedFile).then(snapshot =>{
       return snapshot.ref.getDownloadURL(); //Tra ve 1 chuoi sieu van ban tren FB.

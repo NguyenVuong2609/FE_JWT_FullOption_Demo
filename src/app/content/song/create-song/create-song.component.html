@@ -30,6 +30,14 @@
               <mat-error class="alert alert-danger" *ngIf="validateCategory.hasError('required')">Please select one category</mat-error>
             </mat-form-field>
             <br><br><br>
+<!--            Selected Singer-->
+            <mat-form-field>
+              <mat-label>Singers</mat-label>
+              <mat-select [(ngModel)]="form.singerList" name="singerList" multiple>
+                <mat-option *ngFor="let singer of singerList" [value]="singer">{{singer.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br><br><br>
             <mat-label>Avatar</mat-label>
             <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
             <br>
